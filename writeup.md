@@ -1,6 +1,12 @@
 # Finding Lane Lines on the Road
 ## Writeup
 ---
+
+[//]: # (Image References)
+
+[image1]: ./examples/grayscale.jpg "Grayscale"
+
+---
 ### Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
