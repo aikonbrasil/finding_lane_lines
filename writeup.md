@@ -9,19 +9,27 @@ In order to complete with the project targets, it was created 3 similar function
 #### line_recognition()
 
 This is the master pipeline that is consisted of the next steps:
-- Transformation of raw image to grayscale
-- Defining a kernel size and apply Gaussian smoothing
-- Defining parameters for Canny
-- Creating masked edges image using region_of_interest function
-- Defining the Hough transform parameters
+- Transformation of raw image to grayscale using grayscale(img) helper function
+- Defining a kernel size and applying Gaussian smoothing using the gaussian_blur(img, kernel_size) helper function
+- Defining parameters for Canny using canny(img, low_threshold, high_threshold) helper funtion
+- Creating masked edges image using region_of_interest helper function 
+- Defining the Hough transform parameters using hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap) helper function. This hough_lines function plot the lines using the draw_lines(img, lines, color=[255, 0, 0], thickness=2) helper function.
 - Draw the lines on the edge image
 
+### line_recognition2()
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+This function is an optimization of line_recognition() function, this optimization was done in order to achieve target defined for video detection line(right_side road lines and yellow_left_side road lines). Basically we added a new pipeline to the function draw_lines(). It was saved with the name draw_lines2(). draw_lines2() is characterized by the next features:
+- Calculating slope and intersection for every line that was identified by Hough transform.
+- Lines are clusterized in two groups: left_lines and right_lines, it was done using the slope information.
+- In order to decrease noise in slope and intersection, we used a filter based on mean and standard desviation metrics that correspond to every line indentified in each frame. This metrics where used to filter lines that follow the next rule: mean(slope)-slope < std(slope). In this case mean(slope) is the mean of all lines detected by Hough transform in actual frame, slope is metric that corresponds to the an specific line that is being evaluated, and std(slope) is the standard desviation of all slopes detected in actual frame.
+- In order to take advantage of old information of previous frames, it was applied a weight average between actual slope and intersection. For example, in the case of the slope we considered the next relationship: mean_m_right = np.mean(vector_m_right)*0.2 + m_history_right*0.8. In this case we priorized history information of previous frames.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+### line_recognition3()
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+In order to achieve the challenge, we inserted extra modifications to line_recognition2() function. The features that were added are:
+- Filtering slopes that are near zero, in order to avoid horizontal verticals that are abundant in the video challenge.
+- Using some exceptions in cases in which some variables generate NaN values.
+
 
 ![alt text][image1]
 
