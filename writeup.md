@@ -5,6 +5,7 @@
 [//]: # (Image References)
 
 [image1]: ./examples/grayscale.jpg "Grayscale"
+[imag1]./pictures_red_lines/1.png "picture 1"
 
 ---
 ### Reflection
@@ -21,7 +22,7 @@ This is the master pipeline that is consisted of the next steps:
 - Creating masked edges image using region_of_interest helper function 
 - Defining the Hough transform parameters using hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap) helper function. This hough_lines function plot the lines using the draw_lines(img, lines, color=[255, 0, 0], thickness=2) helper function.
 - Draw the lines on the edge image
-
+![alt text][imag1]
 ### line_recognition2()
 
 This function is an optimization of line_recognition() function, this optimization was done in order to achieve target defined for video detection line(right_side road lines and yellow_left_side road lines). Basically we added a new pipeline to the function draw_lines(). It was saved with the name draw_lines2(). draw_lines2() is characterized by the next features:
