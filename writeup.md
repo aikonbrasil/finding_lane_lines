@@ -4,8 +4,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
-[imag1]./pictures_red_lines/1.png "picture 1"
+[imag1]: ./pictures_red_lines/1.png "picture 1"
 
 ---
 ### Reflection
