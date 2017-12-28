@@ -34,6 +34,12 @@ The next pictures are result of the pipeline described before:
 
 ![alt text][imag5] ![alt text][imag6]
 
+The videos that were generated for raw lines detected with Hough Tranform could be located in the next links:
+
+[Video_Raw Lines_SolidWhiteRight](https://github.com/aikonbrasil/finding_lane_lines/blob/master/video_raw_lines/solidWhiteRight_raw_lines.mp4)
+
+[Video_Raw Lines_SolidYellowLeft](https://github.com/aikonbrasil/finding_lane_lines/blob/master/video_raw_lines/solidYellowLeft_raw_lines.mp4)
+
 ### line_recognition2()
 
 This function is an optimization of line_recognition() function, this optimization was done in order to achieve target defined for video detection line(right_side road lines and yellow_left_side road lines). Basically we added a new pipeline to the function draw_lines(). It was saved with the name draw_lines2(). draw_lines2() is characterized by the next features:
@@ -42,14 +48,21 @@ This function is an optimization of line_recognition() function, this optimizati
 - In order to decrease noise in slope and intersection, we used a filter based on mean and standard deviation metrics that correspond to every line indentified in each frame. This metrics where used to filter lines that follow the next rule: mean(slope)-slope < std(slope). In this case mean(slope) is the mean of all lines detected by Hough transform in actual frame, slope is metric that corresponds to the an specific line that is being evaluated, and std(slope) is the standard deviation of all slopes detected in actual frame.
 - In order to take advantage of old information of previous frames, it was applied a weight average between actual slope and intersection. For example, in the case of the slope we considered the next relationship: mean_m_right = np.mean(vector_m_right)*0.2 + m_history_right*0.8. In this case we priorized history information of previous frames.
 
+The videos generated in order to follow P1 requirements could be located in the next links :
+
+[Video_P1 Lines_SolidWhiteRight](https://github.com/aikonbrasil/finding_lane_lines/blob/master/video_P1/solidWhiteRight_SolidLine.mp4)
+
+[Video_P1 Lines_SolidYellowLeft](https://github.com/aikonbrasil/finding_lane_lines/blob/master/video_P1/solidYellowLeft_SolidLine.mp4)
+
 ### line_recognition3()
 
 In order to achieve the challenge, we inserted extra modifications to line_recognition2() function. The features that were added are:
 - Filtering slopes that are near zero, in order to avoid horizontal verticals that are abundant in the video challenge.
 - Using some exceptions in cases in which some variables generate NaN values.
 
+The videos generated in order to follow Challenge P1 project could be located in the next links :
 
-![alt text][image1]
+[Video_P1_Challenge](https://github.com/aikonbrasil/finding_lane_lines/blob/master/video_P1/challenge_SolidLine.mp4)
 
 
 ### 2. Identify potential shortcomings with your current pipeline
