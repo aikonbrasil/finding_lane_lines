@@ -68,15 +68,19 @@ The videos generated in order to follow Challenge P1 project could be located in
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+One potential shortcoming would be in case the camera that generate the video is located in other position on the car. So, maybe in this case, my pipeline will not be capable to define automatically the mask used in the script.
 
-Another shortcoming could be ...
+Another shortcoming could be when some shadow appears in the road or maybe in case the road line are not easily visible.
+
+In the case of the Challenge video, I have used slope information to filter horizontal lines. In this case, it was done a manual definition of slope values to filter specific lines. Ideally it should be done automatically, maybe using some artificial intelligent algorithm.
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+A possible improvement would be to create an specific function in order to define vertices that define the mask automatically.
 
-Another potential improvement could be to ...
+Another potential improvement could be to create a function that calibrate automatically the Hough Transform parameters.
+
+Other important improvement to solve the Challenge video could be to create an artificial intelligence algorithm to define slopes that will filter horizontal lines.
 
 This repository has the notebook used to solve finding lane lines project
