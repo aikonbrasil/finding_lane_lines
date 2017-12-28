@@ -4,6 +4,9 @@
 ### Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+In order to complete with the project targets, it was created 3 similar functions that were called as: line_recognition(), line_recognition2(), and line_recognition3(). In following lines is described in detail each of these functions.
+
+#### draw_lines()
 
 My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
 
